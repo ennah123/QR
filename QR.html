@@ -3,49 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generate QR Code</title>
-    <style>
-        #qrCode {
-            margin-top: 20px;
-        }
-    </style>
+    <title>QR Code Generator</title>
+    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiqtuxNMmI-yzBnAFVNRYxf67ZnHO50EqpQg&s" type="image/x-icon">
+    <link rel="stylesheet" href="QR.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="dark:bg-zinc-900 bg-zinc-100">
+    <center>
+    <section>
 
-    <h2>Generate QR Code from URL</h2>
+        <h1 class="text-3xl">Generate QR</h1>
+        <br>
+        <br>
+        <br>
+        <p>Enter URL here</p>
+        <input 
+            class="mt-4 mb-4 text-center !text-zinc-800 min-w-96 p-2"
+            type="text" 
+            id="urlInput" 
+            placeholder="Enter URL here" 
+        />
+        <br>
+        <button 
+            class="px-4 py-2 text-sm"
+            onclick="generateQRCode()"
+        >Generate QR Code</button>
 
-    <input type="text" id="urlInput" placeholder="Enter URL here" />
-    <button onclick="generateQRCode()">Generate QR Code</button>
+        <br><br>
 
-    <br><br>
-
-    <div id="qrCode"></div>
-
+        <div id="qrCode"></div> 
+        <p 
+            onclick="hundelPrint()"
+            class="text-sm mt-3" 
+            id="print"
+        >print</p>
+        <p 
+            class="text-red-600 text-xs" 
+            id="error"
+        ></p>
+    </section>
+    </center>
     <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
-    <script>
-        function generateQRCode() {
-            const url = document.getElementById('urlInput').value.trim()
-
-            if (!url || !/^https?:\/\//i.test(url)) {
-                alert('Please enter a valid URL (e.g., http:// or https://)')
-                return
-            }
-
-            document.getElementById('qrCode').innerHTML = ''
-
-            const canvas = document.createElement('canvas')
-            document.getElementById('qrCode').appendChild(canvas)
-
-            QRCode.toCanvas(canvas, url, function (error) {
-                if (error) {
-                    console.error(error)
-                    alert('Error generating QR code')
-                } else {
-                    console.log('QR code generated successfully!')
-                }
-            })
-        }
-    </script>
+    <script src="QR.js"></script>
 
 </body>
 </html>
