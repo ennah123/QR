@@ -5,27 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QR Code Generator</title>
     <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiqtuxNMmI-yzBnAFVNRYxf67ZnHO50EqpQg&s" type="image/x-icon">
-    <link rel="stylesheet" href="QR.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="QR.css">
 </head>
-<body class="dark:bg-zinc-900 bg-zinc-100">
+<body class="bg-lime-100 dark:bg-zinc-900">
     <center>
     <section>
 
-        <h1 class="text-3xl">Generate QR</h1>
+        <h1 class="text-3xl text-[#123524] dark:text-[#effcb8]">Generate QR</h1>
         <br>
         <br>
         <br>
-        <p>Enter URL here</p>
+        <p class="text-[#123524] dark:text-[#effcb8]">Enter URL here</p>
         <input 
-            class="mt-4 mb-4 text-center !text-zinc-800 min-w-96 p-2"
+            class="mt-4 mb-4 text-center min-w-96 p-2"
             type="text" 
             id="urlInput" 
             placeholder="Enter URL here" 
         />
         <br>
         <button 
-            class="px-4 py-2 text-sm"
+            class="px-4 py-2 text-sm text-[#effcb8]"
             onclick="generateQRCode()"
         >Generate QR Code</button>
 
@@ -34,7 +34,7 @@
         <div id="qrCode"></div> 
         <p 
             onclick="hundelPrint()"
-            class="text-sm mt-3" 
+            class="text-sm mt-3 text-[#123524] dark:text-[#effcb8]" 
             id="print"
         >print</p>
         <p 
