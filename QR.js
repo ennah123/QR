@@ -1,5 +1,8 @@
 function generateQRCode() {
-    const url = document.getElementById('urlInput').value.trim()
+    let url = document.getElementById('urlInput').value.trim()
+    if (!url) {
+        url = "https://ennah123.github.io/QR/"
+    }
     const errorText = document.getElementById('error')
     const print = document.getElementById('print')
     if (!url || !/^https?:\/\//i.test(url)) {
@@ -26,4 +29,8 @@ function generateQRCode() {
 
 function hundelPrint() {
     print()
+}
+
+window.onload = function () {
+    generateQRCode()
 }
